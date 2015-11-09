@@ -4,16 +4,16 @@ dependencies: []
 
 galaxy_info:
 
-  author:              Elao
-  company:             Elao
+  author:              Wolfgang Hotwagner
+  company:             Toscom
   description: >
-    Shorewall
+    Shorewall ( forked from Elao )
   license: MIT
   min_ansible_version: 1.7.2
   platforms:
     - name: Debian
       versions:
-        - wheezy
+        - jessie
   categories:
     - development
     - web

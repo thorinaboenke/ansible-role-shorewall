@@ -2,5 +2,5 @@
 
 # Configs
 
-elao_shorewall_configs_dir: /etc/shorewall
-elao_shorewall_configs:     []
+shorewall_configs_dir: /etc/shorewall
+shorewall_configs:     []

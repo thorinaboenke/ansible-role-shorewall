@@ -3,7 +3,7 @@
 - name: config > Templates
   template:
     src:  "{{ item.template }}"
-    dest: "{{ elao_shorewall_configs_dir }}/{{ item.file }}"
-  with_items: elao_shorewall_configs
-  notify:
-    - shorewall restart
+    dest: "{{ shorewall_configs_dir }}/{{ item.file }}"
+  with_items: shorewall_configs
+#  notify:
+#    - shorewall restart
