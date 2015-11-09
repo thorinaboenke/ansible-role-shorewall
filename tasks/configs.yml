@@ -1,9 +1,19 @@
 ---
 
 - name: config > Templates
+#  debug: msg="User {{ item.key }}"
   template:
-    src:  "{{ item.template }}"
-    dest: "{{ shorewall_configs_dir }}/{{ item.file }}"
-  with_items: shorewall_configs
+    src:  "{{ item.key }}.j2"
+    dest: "{{ shorewall_configs_dir }}/{{ item.key }}"
+  with_dict: shorewall_configs 
+#  notify:
+#    - shorewall restart
+
+- name: config interfaces
+#  debug: msg="Debug {{ item }}"
+  template:
+    src:  "interfaces.j2"
+    dest: "{{ shorewall_configs_dir }}/interfaces"
+#  with_items: shorewall_configs.zones
 #  notify:
 #    - shorewall restart
