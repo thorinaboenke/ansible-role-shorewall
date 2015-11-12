@@ -1,6 +1,7 @@
 ---
 
 # Configs
-
+shorewall_startup: 1
+shorewall_ipforward: "On"
 shorewall_configs_dir: /etc/shorewall
 shorewall_configs:     []

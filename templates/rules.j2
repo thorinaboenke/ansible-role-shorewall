@@ -1,0 +1,33 @@
+#
+# THIS FILE IS MANAGED BY ANSIBLE
+# DO NOT EDIT IT MANUALLY
+#
+# Shorewall version 4 - Rules File
+#
+# For information on the settings in this file, type "man shorewall-rules"
+#
+# The manpage is also online at
+# http://www.shorewall.net/manpages/shorewall-rules.html
+#
+######################################################################################################################################################################################################
+#ACTION		SOURCE		DEST		PROTO	DEST	SOURCE		ORIGINAL	RATEUSER/	MARK	CONNLIMIT	TIME		HEADERS		SWITCH		HELPER
+#							PORT(S)	PORT(S)		DEST		LIMIT		GROUP
+?SECTION ALL
+?SECTION ESTABLISHED
+?SECTION RELATED
+?SECTION INVALID
+?SECTION UNTRACKED
+?SECTION NEW
+{% for entry in item.value  %}
+{% if entry['action'] is defined and entry['source']  is defined and entry['dest'] %}
+{{ entry['action'] }} {{ entry['source'] }} {{ entry['dest'] }}
+{%- if entry['proto'] is defined %} {{ entry['proto'] }} {% else %} - {% endif %} 
+{%- if entry['dest_port'] is defined %} {{ entry['dest_port'] }} {% else %} -  {% endif %} 
+{%- if entry['source_port'] is defined %} {{ entry['source_port'] }} {% else %} -  {% endif %}
+{%- if entry['orig_dest'] is defined %} {{ entry['orig_dest'] }} {% else %} -  {% endif %}
+{%- if entry['rate'] is defined %} {{ entry['rate'] }} {% else %} -  {% endif %}
+
+{% else %}
+# {{ entry }}
+{% endif %}
+{% endfor %}

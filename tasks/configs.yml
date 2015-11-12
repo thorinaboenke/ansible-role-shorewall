@@ -1,19 +1,26 @@
 ---
 
+- name: set ip_forward
+  lineinfile: >
+    dest=/etc/shorewall/shorewall.conf
+    line="IP_FORWARDING={{ shorewall_ipforward }}"
+    regexp="^IP_FORWARDING="
+    state=present
+  notify:
+    - shorewall restart
+
 - name: config > Templates
 #  debug: msg="User {{ item.key }}"
   template:
     src:  "{{ item.key }}.j2"
     dest: "{{ shorewall_configs_dir }}/{{ item.key }}"
   with_dict: shorewall_configs 
-#  notify:
-#    - shorewall restart
+  notify:
+    - shorewall restart
 
 - name: config interfaces
-#  debug: msg="Debug {{ item }}"
   template:
     src:  "interfaces.j2"
     dest: "{{ shorewall_configs_dir }}/interfaces"
-#  with_items: shorewall_configs.zones
-#  notify:
-#    - shorewall restart
+  notify:
+    - shorewall restart
