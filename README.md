@@ -20,6 +20,7 @@ git clone https://github.com/whotwagner/ansible-role-shorewall.git
 
 #### Shorewall configuration with default templates
 
+```
     shorewall_startup: 1
     shorewall_ipforward: "On"
     shorewall_configs_dir: /etc/shorewall```
