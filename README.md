@@ -23,7 +23,7 @@ git clone https://github.com/whotwagner/ansible-role-shorewall.git
 ```
     shorewall_startup: 1
     shorewall_ipforward: "On"
-    shorewall_configs_dir: /etc/shorewall```
+    shorewall_configs_dir: /etc/shorewall
 
     shorewall_configs:
       zones:
