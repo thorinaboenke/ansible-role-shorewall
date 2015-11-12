@@ -13,7 +13,9 @@ None.
 
 ## Installation
 
+```
 git clone https://github.com/whotwagner/ansible-role-shorewall.git
+```
 
 ### Configuration example
 
