@@ -2,8 +2,6 @@
 
 This role will assume the setup of [shorewall](http://shorewall.net/). 
 
-( This role is a fork of [ElaoInfra/ansible-role-shorewall](https://github.com/ElaoInfra/ansible-role-shorewall)
-
 ## Requirements
 
 - Ansible 1.9.2+
@@ -21,7 +19,11 @@ git clone https://github.com/whotwagner/ansible-role-shorewall.git
 
 
 #### Shorewall configuration with default templates
-```
+
+    shorewall_startup: 1
+    shorewall_ipforward: "On"
+    shorewall_configs_dir: /etc/shorewall```
+
     shorewall_configs:
       zones:
         - { name: inet, 
