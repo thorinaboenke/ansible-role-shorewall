@@ -19,21 +19,6 @@ git clone https://github.com/whotwagner/ansible-role-shorewall.git
 
 ### Configuration example
 
-#### Shorewall configuration with custom templates
-
-```
----
-
-elao_shorewall_config_templates:
-    policy:      "{{ playbook_dir ~ '/templates/shorewall/policy.j2' }}"
-    masq:        "{{ playbook_dir ~ '/templates/shorewall/masq.j2' }}"
-    interfaces:  "{{ playbook_dir ~ '/templates/shorewall/interfaces.j2' }}"
-    zones:       "{{ playbook_dir ~ '/templates/shorewall/zones.j2' }}"
-    rules:       "{{ playbook_dir ~ '/templates/shorewall/rules.j2' }}"
-
-
-
-```
 
 #### Shorewall configuration with default templates
 ```
