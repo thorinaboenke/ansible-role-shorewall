@@ -14,5 +14,7 @@
 #					OPTIONS			OPTIONS
 fw	firewall
 {% for entry in item.value  %}
+{% if entry['name'] != "-" %}
 {{ entry['name'] }} {{ entry['type'] }}
+{% endif %}
 {% endfor %}	

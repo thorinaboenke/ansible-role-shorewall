@@ -15,6 +15,6 @@
 #ZONE		INTERFACE		OPTIONS
 {% for entry in shorewall_configs.zones  %}
 {% if entry['interface'] is defined %}
-{{ entry['name'] }}	{{ entry['interface']['name'] }}	{{ entry['interface']['options'] }}
+{{ entry['name'] }}	{{ entry['interface']['name'] }}	{% if entry['interface']['options'] is defined %}  {{ entry['interface']['options'] }} {% endif %}
 {% endif %} 
 {% endfor %}	
