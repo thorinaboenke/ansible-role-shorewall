@@ -4,8 +4,9 @@ This role will assume the setup of [shorewall](http://shorewall.net/).
 
 ## Requirements
 
-- Ansible 1.9.2+ 
+- Ansible 1.9.2+ ( might work with prior versions too)
 - Debian-based linux-distribution
+- shorewall (tested with 4.6)
 
 ## Dependencies
 
