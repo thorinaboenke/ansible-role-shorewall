@@ -1,0 +1,22 @@
+#
+# THIS FILE IS MANAGED BY ANSIBLE
+# DO NOT EDIT IT MANUALLY
+# Shorewall version 4 - Tunnels File
+#
+# For information about entries in this file, type "man shorewall-tunnels"
+#
+# The manpage is also online at
+# http://www.shorewall.net/manpages/shorewall-tunnels.html
+#
+###############################################################################
+#TYPE			ZONE	GATEWAY(S)			GATEWAY
+#								ZONE(S)
+{% for entry in item.value  %}
+{% if entry['type'] is defined and entry['zone']  is defined and entry['gateway'] is defined %}
+{{ entry['type'] }}	{{ entry['zone'] }}	{{ entry['gateway'] }}
+{%- if entry['gwzone'] is defined %}	{{ entry['gwzone'] }} {% else %} - {% endif %} 
+
+{% else %}
+# {{ entry }}
+{% endif %}
+{% endfor %}

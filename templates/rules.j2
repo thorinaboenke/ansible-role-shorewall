@@ -19,7 +19,7 @@
 ?SECTION UNTRACKED
 ?SECTION NEW
 {% for entry in item.value  %}
-{% if entry['action'] is defined and entry['source']  is defined and entry['dest'] %}
+{% if entry['action'] is defined and entry['source']  is defined and entry['dest'] is defined %}
 {{ entry['action'] }} {{ entry['source'] }} {{ entry['dest'] }}
 {%- if entry['proto'] is defined %} {{ entry['proto'] }} {% else %} - {% endif %} 
 {%- if entry['dest_port'] is defined %} {{ entry['dest_port'] }} {% else %} -  {% endif %} 
