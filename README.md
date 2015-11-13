@@ -67,7 +67,9 @@ git clone https://github.com/whotwagner/ansible-role-shorewall.git
 ```
     shorewall_configs:
       zones:
+        - This entry will is in the interfaces file for using the hosts-file
         - { name: "-", interface: { name: $OVPNIF } }
+        - This entry will be added to the zones file
         - { name: vpn, type: ipv4 }
         - { name: inet, 
             type: ipv4,
