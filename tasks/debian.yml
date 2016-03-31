@@ -13,3 +13,9 @@
     line="startup={{ shorewall_startup }}"
     regexp="^startup="
     state=present
+
+- name: install shorewall6
+  apt:
+    name:  "shorewall6"
+    state: present
+  when: shorewall_ipv6 == True
