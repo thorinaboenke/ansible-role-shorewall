@@ -1,6 +1,6 @@
 # Ansible Role: Shorewall
 
-This role will assume the setup of [shorewall](http://shorewall.net/). It also support IPv6
+This role will assume the setup of [shorewall](http://shorewall.net/). It also supports IPv6
 
 ## Requirements
 
@@ -114,7 +114,7 @@ git clone https://github.com/whotwagner/ansible-role-shorewall.git
 
 ```
 
-#### Shorewall6 configuration with 2 nets and smtp access
+#### Shorewall(IPv)6 configuration with 2 nets and smtp access
 ```
 shorewall6_configs:
       rules:
