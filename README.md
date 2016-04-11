@@ -1,6 +1,6 @@
 # Ansible Role: Shorewall
 
-This role will assume the setup of [shorewall](http://shorewall.net/). 
+This role will assume the setup of [shorewall](http://shorewall.net/). It also support IPv6
 
 ## Requirements
 
@@ -112,6 +112,37 @@ git clone https://github.com/whotwagner/ansible-role-shorewall.git
         - OpenVPN-Tunnel:
         - { type: "openvpn:1194", zone: ovpn, gateway: "0.0.0.0/0" }
 
+```
+
+#### Shorewall6 configuration with 2 nets and smtp access
+```
+shorewall6_configs:
+      rules:
+        - { action: ACCEPT, source: "inet", dest: "lan:$MAIL", proto: tcp, dest_port: 25 }
+      zones:
+        - { name: inet, 
+            type: ipv6,
+            interface: { name: $INETIF, broadcast: detect, options: "blacklist,routeback,nosmurfs" }
+          }
+        - { 
+            name: lan, 
+            type: ipv6,
+            interface: { name: $LANIF, broadcast: detect, options: "blacklist,routeback,bridge,nosmurfs" }
+          }
+      policy:
+        - { source: fw,    dest: all,   policy: ACCEPT }
+        - { source: lan,   dest: inet,  policy: ACCEPT }
+        - { source: inet,  dest: inet,  policy: DROP }
+        - { source: inet,  dest: fw,    policy: DROP }
+        - { source: inet,  dest: lan,   policy: DROP }
+        - THIS POLICY HAS TO BE THE LAST
+        - { source: all,   dest: all,   policy: REJECT, log: info } 
+      params:
+        - Interfaces
+        - { name: INETIF, value: eth0 }
+        - { name: LANIF, value: br0 }
+        - Hosts
+        - { name: MAIL, value: "2607:f8b0:400c:c05::240" }
 ```
 
 ## Example playbook
