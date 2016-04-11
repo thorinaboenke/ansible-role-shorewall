@@ -4,3 +4,6 @@
   when: ansible_os_family == 'Debian'
 
 - include: configs.yml
+
+- include: configsipv6.yml
+  when: shorewall6_configs != False

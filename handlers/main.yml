@@ -4,3 +4,8 @@
   service:
     name:  shorewall
     state: restarted
+
+- name: shorewall6 restart
+  service:
+    name:  shorewall6
+    state: restarted
