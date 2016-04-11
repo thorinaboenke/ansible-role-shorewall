@@ -144,6 +144,7 @@ shorewall6_configs:
         - Hosts
         - { name: MAIL, value: "2607:f8b0:400c:c05::240" }
 ```
+Of course it is possible to mix ipv4 and ipv6-configurations.
 
 ## Example playbook
 
