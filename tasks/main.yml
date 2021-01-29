@@ -6,4 +6,4 @@
 - include: configs.yml
 
 - include: configsipv6.yml
-  when: shorewall6_configs != False
+  when: shorewall6_enable
