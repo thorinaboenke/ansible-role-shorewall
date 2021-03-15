@@ -24,3 +24,8 @@
     dest: "{{ shorewall_configs_dir }}/interfaces"
   notify:
     - shorewall restart
+
+- name: Configure shorewall service autostart
+  service:
+    name:  shorewall
+    enabled: "{{ 'yes' if shorewall_startup == 1 else 'no' }}"

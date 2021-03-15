@@ -27,3 +27,9 @@
   notify:
     - shorewall6 restart
   when: shorewall6_enable
+
+- name: Configure shorewall6 service autostart
+  service:
+    name:  shorewall6
+    enabled: "{{ 'yes' if shorewall_startup == 1 else 'no' }}"
+  when: shorewall6_enable
